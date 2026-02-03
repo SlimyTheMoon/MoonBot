@@ -5,7 +5,12 @@ services:
     restart: always
     environment:
       - DISCORD_TOKEN=your_token_here
-      - DB_PATH=/data/moonbot.db
+      - DB_PATH=/data
+      - API_URL_BASES_GOODS=${API_URL_BASES_GOODS}
+      - VERIFY_SSL=true
+      - ALLOW_INSECURE_HTTP=false
+      # Optional: path inside container to a CA bundle if you use a private CA
+      - SSL_CA_PATH=${SSL_CA_PATH:-}/moonbot.db
     volumes:
       - ./data:/data
     # For Web UI expansion later
