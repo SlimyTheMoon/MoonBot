@@ -17,12 +17,16 @@ print("API_URL_BASES_GOODS:", API_URL_BASES_GOODS)
 print("API_URL_BASES_STATS:", API_URL_BASES_STATS)
 bot = commands.Bot(command_prefix='?', intents=intents)
 
+goods = {}
+health = {}
+swear_words = ['shit', 'fat']
+
 @bot.event
 async def on_message(message):
     if message.author == bot.user:
         return
 
-    if 'shit' in message.content.lower():
+    if any(swear_word in message.content.lower() for swear_word in swear_words):
         await message.delete()
         await message.channel.send(f"{message.author.mention}, please watch your language.")
     await bot.process_commands(message)
@@ -31,13 +35,5 @@ async def on_message(message):
 async def healthtracker(ctx):
     await ctx.send(f"Test")   
 
-@bot.event
-async def on_message(message):
-    if message.author == bot.user:
-        return
-
-    if 'am i fat?' in message.content.lower():
-        await message.channel.send(f"{message.author.mention}, I am sorry buddy, yes you are.")
-    await bot.process_commands(message)
 
 bot.run(token, log_handler=handler, log_level=logging.DEBUG)
