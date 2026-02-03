@@ -1,11 +1,13 @@
-version: "3.8"
 services:
   moonbot:
-    image: moonbot:latest
     build: .
+    container_name: moonbot
+    restart: always
     environment:
-      - DISCORD_TOKEN=${DISCORD_TOKEN}
-    ports:
-      - "5000:5000"
+      - DISCORD_TOKEN=your_token_here
+      - DB_PATH=/data/moonbot.db
     volumes:
-      - ./moonbot.db:/app/moonbot.db
+      - ./data:/data
+    # For Web UI expansion later
+    ports:
+      - "8080:8080"
