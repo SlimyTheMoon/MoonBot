@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  moonbot:
+    image: moonbot:latest
+    build: .
+    environment:
+      - DISCORD_TOKEN=${DISCORD_TOKEN}
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./moonbot.db:/app/moonbot.db
