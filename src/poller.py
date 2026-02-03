@@ -37,6 +37,9 @@ class DarkStatPoller:
         
         # If this is the first run, just populate cache and return
         if not self.last_data:
+            # DEBUG: Print the structure so we can verify the keys (name, health, etc.)
+            logger.info(f"First fetch debug: {current_data}")
+            
             self.last_data = current_map
             logger.info("Initial data loaded. Ready to track changes.")
             return

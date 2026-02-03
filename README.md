@@ -96,7 +96,7 @@ Tip: Consider making `API_URL` and `POLL_INTERVAL` env-configurable for producti
 ---
 
 ## License
-No license file included — add a `LICENSE` (MIT recommended) to publish this repository.
+No license file included - add a `LICENSE` (MIT recommended) to publish this repository.
 
 ---
 
