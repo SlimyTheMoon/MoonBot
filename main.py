@@ -36,7 +36,7 @@ async def on_message(message):
     if message.author == bot.user:
         return
 
-    if 'am I fat?' in message.content.lower():
+    if 'am i fat?' in message.content.lower():
         await message.delete()
         await message.channel.send(f"{message.author.mention}, I am sorry buddy, yes you are.")
     await bot.process_commands(message)
