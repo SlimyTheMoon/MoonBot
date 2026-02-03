@@ -31,5 +31,14 @@ async def on_message(message):
 async def healthtracker(ctx):
     await ctx.send(f"Test")   
 
+@bot.event
+async def on_message(message):
+    if message.author == bot.user:
+        return
+
+    if 'Am I fat?' in message.content.lower():
+        await message.delete()
+        await message.channel.send(f"{message.author.mention}, I am sorry buddy, yes you are.")
+    await bot.process_commands(message)
 
 bot.run(token, log_handler=handler, log_level=logging.DEBUG)
